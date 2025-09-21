@@ -63,10 +63,12 @@ export default {
         'gradient-hero': 'var(--gradient-hero)',
         'gradient-sunset': 'var(--gradient-sunset)',
         'gradient-ocean': 'var(--gradient-ocean)',
+        'gradient-paradise': 'var(--gradient-paradise)',
       },
       boxShadow: {
         'travel': 'var(--shadow-travel)',
         'warm': 'var(--shadow-warm)',
+        'soft': 'var(--shadow-soft)',
       },
       transitionTimingFunction: {
         'smooth': 'cubic-bezier(0.4, 0, 0.2, 1)',

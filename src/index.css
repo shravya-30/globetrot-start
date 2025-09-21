@@ -8,50 +8,52 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Travel-themed color palette */
-    --background: 25 100% 97%;
-    --foreground: 15 25% 15%;
+    /* Sophisticated travel-themed color palette */
+    --background: 35 50% 98%;
+    --foreground: 25 35% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 15 25% 15%;
+    --card-foreground: 25 35% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 15 25% 15%;
+    --popover-foreground: 25 35% 12%;
 
-    /* Ocean Blue - Primary brand color */
-    --primary: 201 85% 55%;
+    /* Tropical Turquoise - Primary brand color */
+    --primary: 185 84% 42%;
     --primary-foreground: 0 0% 98%;
-    --primary-glow: 201 85% 65%;
+    --primary-glow: 185 75% 52%;
 
-    /* Sunset Orange - Secondary accent */
-    --secondary: 24 95% 60%;
+    /* Golden Sunset - Secondary accent */
+    --secondary: 35 85% 58%;
     --secondary-foreground: 0 0% 98%;
 
-    /* Warm Sand - Muted backgrounds */
-    --muted: 45 40% 92%;
-    --muted-foreground: 25 20% 45%;
+    /* Warm Pearl - Muted backgrounds */
+    --muted: 40 25% 94%;
+    --muted-foreground: 30 15% 48%;
 
-    /* Coral Pink - Accent color */
-    --accent: 15 85% 70%;
+    /* Coral Breeze - Accent color */
+    --accent: 12 75% 65%;
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 45 30% 88%;
-    --input: 45 30% 88%;
-    --ring: 201 85% 55%;
+    --border: 40 20% 90%;
+    --input: 40 20% 90%;
+    --ring: 185 84% 42%;
 
     --radius: 0.75rem;
 
-    /* Travel-themed gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-sunset: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)));
-    --gradient-ocean: linear-gradient(180deg, hsl(var(--primary) / 0.1), hsl(var(--primary) / 0.05)));
+    /* Sophisticated travel gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(185 84% 42%), hsl(185 75% 52%), hsl(35 85% 58%));
+    --gradient-sunset: linear-gradient(135deg, hsl(35 85% 58%), hsl(12 75% 65%), hsl(8 70% 70%));
+    --gradient-ocean: linear-gradient(180deg, hsl(185 84% 42% / 0.08), hsl(185 75% 52% / 0.03), transparent);
+    --gradient-paradise: linear-gradient(45deg, hsl(185 84% 42% / 0.1), hsl(35 85% 58% / 0.1));
 
-    /* Shadows with travel theme */
-    --shadow-travel: 0 10px 30px -10px hsl(var(--primary) / 0.3);
-    --shadow-warm: 0 8px 25px -8px hsl(var(--secondary) / 0.4);
+    /* Premium shadows */
+    --shadow-travel: 0 12px 40px -12px hsl(185 84% 42% / 0.25);
+    --shadow-warm: 0 8px 30px -8px hsl(35 85% 58% / 0.35);
+    --shadow-soft: 0 4px 20px -4px hsl(185 50% 20% / 0.15);
 
     /* Smooth animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -75,27 +77,27 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 15 15% 8%;
-    --foreground: 45 40% 92%;
+    --background: 20 25% 6%;
+    --foreground: 40 30% 92%;
 
-    --card: 15 15% 10%;
-    --card-foreground: 45 40% 92%;
+    --card: 20 20% 8%;
+    --card-foreground: 40 30% 92%;
 
-    --popover: 15 15% 10%;
-    --popover-foreground: 45 40% 92%;
+    --popover: 20 20% 8%;
+    --popover-foreground: 40 30% 92%;
 
-    --primary: 201 85% 65%;
-    --primary-foreground: 15 15% 8%;
-    --primary-glow: 201 85% 75%;
+    --primary: 185 75% 58%;
+    --primary-foreground: 20 25% 6%;
+    --primary-glow: 185 70% 68%;
 
-    --secondary: 24 85% 65%;
-    --secondary-foreground: 15 15% 8%;
+    --secondary: 35 80% 62%;
+    --secondary-foreground: 20 25% 6%;
 
-    --muted: 15 15% 15%;
-    --muted-foreground: 25 20% 65%;
+    --muted: 20 15% 12%;
+    --muted-foreground: 30 15% 70%;
 
-    --accent: 15 75% 75%;
-    --accent-foreground: 15 15% 8%;
+    --accent: 12 70% 68%;
+    --accent-foreground: 20 25% 6%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
