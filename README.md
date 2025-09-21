@@ -3,6 +3,7 @@
 ## Project info
 
 **URL**: https://lovable.dev/projects/099900d3-0440-4707-82d5-a8a8b51a0907
+https://globetrot-start.lovable.app/
 
 ## How can I edit this code?
 
