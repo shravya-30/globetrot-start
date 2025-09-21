@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowLeft, MapPin, DollarSign, Building, Sparkles } from "lucide-react";
+import { formatInrRange } from "@/lib/currency";
 
 interface PreferencesScreenProps {
   onBack: () => void;
@@ -31,7 +32,10 @@ export const PreferencesScreen = ({ onBack, onContinue }: PreferencesScreenProps
   ];
 
   const budgetRanges = [
-    "$500 - $1,000", "$1,000 - $2,500", "$2,500 - $5,000", "$5,000+"
+    formatInrRange(500, 1000),
+    formatInrRange(1000, 2500), 
+    formatInrRange(2500, 5000),
+    "₹4,15,000+"
   ];
 
   const accommodationTypes = [

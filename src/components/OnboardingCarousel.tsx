@@ -2,9 +2,11 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ChevronLeft, ChevronRight, Search, MapPin, Smartphone } from "lucide-react";
-import hotelsImage from "@/assets/hotels-illustration.jpg";
-import mapImage from "@/assets/map-illustration.jpg";
-import mobileImage from "@/assets/mobile-booking.jpg";
+
+// High-quality travel images from Unsplash optimized for mobile
+const hotelsImage = "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop&crop=center&auto=format&q=80";
+const mapImage = "https://images.unsplash.com/photo-1519302959554-a75be0afc82a?w=600&h=400&fit=crop&crop=center&auto=format&q=80";
+const mobileImage = "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center&auto=format&q=80";
 
 interface OnboardingCarouselProps {
   onBack: () => void;

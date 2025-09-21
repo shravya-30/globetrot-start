@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Search, MapPin, Calendar, User, Heart, Settings } from "lucide-react";
+import { convertUsdToInr, formatInrPrice } from "@/lib/currency";
 
 export const HomeScreen = () => {
   return (
@@ -102,7 +103,7 @@ export const HomeScreen = () => {
                   </div>
                   <h4 className="font-semibold mb-1">Amazing Destination {item}</h4>
                   <p className="text-sm text-muted-foreground mb-2">Perfect for adventure seekers</p>
-                  <p className="text-sm font-medium text-primary">From $299/night</p>
+                  <p className="text-sm font-medium text-primary">From {formatInrPrice(convertUsdToInr(299))}/night</p>
                 </div>
               ))}
             </div>

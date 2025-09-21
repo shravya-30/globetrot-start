@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Plane } from "lucide-react";
-import heroImage from "@/assets/hero-travel.jpg";
+
+// High-quality hero image from Unsplash
+const heroImage = "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=1200&h=800&fit=crop&crop=center&auto=format&q=80";
 
 interface WelcomeScreenProps {
   onGetStarted: () => void;
