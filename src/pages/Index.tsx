@@ -43,7 +43,7 @@ const Index = () => {
       case "completion":
         return <CompletionScreen onStartExploring={() => handleStepChange("home")} />;
       case "home":
-        return <HomeScreen />;
+        return <HomeScreen onBack={() => handleStepChange("completion")} />;
       default:
         return <WelcomeScreen onGetStarted={() => handleStepChange("auth")} />;
     }
