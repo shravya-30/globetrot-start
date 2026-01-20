@@ -2,12 +2,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Search, MapPin, Calendar, User, Heart, Settings, ArrowLeft, Home } from "lucide-react";
 import { convertUsdToInr, formatInrPrice } from "@/lib/currency";
+import { useNavigate } from "react-router-dom";
+import { destinations } from "@/data/destinations";
 
 interface HomeScreenProps {
   onBack?: () => void;
 }
 
 export const HomeScreen = ({ onBack }: HomeScreenProps) => {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-gradient-ocean">
       {/* Header */}
@@ -108,51 +112,12 @@ export const HomeScreen = ({ onBack }: HomeScreenProps) => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                {
-                  id: 1,
-                  name: "Santorini, Greece",
-                  description: "Beautiful white buildings and stunning sunsets",
-                  price: 450,
-                  image: "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=400&h=300&fit=crop&crop=center"
-                },
-                {
-                  id: 2,
-                  name: "Bali, Indonesia",
-                  description: "Tropical paradise with rice terraces and beaches",
-                  price: 250,
-                  image: "https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=400&h=300&fit=crop&crop=center"
-                },
-                {
-                  id: 3,
-                  name: "Kyoto, Japan",
-                  description: "Ancient temples and traditional Japanese culture",
-                  price: 380,
-                  image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=400&h=300&fit=crop&crop=center"
-                },
-                {
-                  id: 4,
-                  name: "Maldives",
-                  description: "Crystal clear waters and overwater bungalows",
-                  price: 750,
-                  image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&crop=center"
-                },
-                {
-                  id: 5,
-                  name: "Swiss Alps",
-                  description: "Majestic mountains and pristine alpine scenery",
-                  price: 520,
-                  image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop&crop=center"
-                },
-                {
-                  id: 6,
-                  name: "Dubai, UAE",
-                  description: "Modern luxury and desert adventures",
-                  price: 420,
-                  image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=400&h=300&fit=crop&crop=center"
-                }
-              ].map((destination) => (
-                <div key={destination.id} className="group cursor-pointer">
+              {destinations.map((destination) => (
+                <div 
+                  key={destination.id} 
+                  className="group cursor-pointer"
+                  onClick={() => navigate(`/destination/${destination.id}`)}
+                >
                   <div className="aspect-video rounded-lg mb-3 overflow-hidden shadow-md">
                     <img 
                       src={destination.image} 
@@ -160,7 +125,7 @@ export const HomeScreen = ({ onBack }: HomeScreenProps) => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <h4 className="font-semibold mb-1">{destination.name}</h4>
+                  <h4 className="font-semibold mb-1">{destination.name}, {destination.country}</h4>
                   <p className="text-sm text-muted-foreground mb-2">{destination.description}</p>
                   <p className="text-sm font-medium text-primary">From {formatInrPrice(convertUsdToInr(destination.price))}/night</p>
                 </div>
