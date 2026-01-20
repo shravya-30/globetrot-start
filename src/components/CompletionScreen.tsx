@@ -1,15 +1,28 @@
 import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, ArrowLeft } from "lucide-react";
 import celebrationImage from "@/assets/celebration-travel.jpg";
 
 interface CompletionScreenProps {
+  onBack?: () => void;
   onStartExploring: () => void;
 }
 
-export const CompletionScreen = ({ onStartExploring }: CompletionScreenProps) => {
+export const CompletionScreen = ({ onBack, onStartExploring }: CompletionScreenProps) => {
   return (
     <div className="min-h-screen bg-gradient-ocean p-6 flex items-center justify-center">
-      <div className="w-full max-w-md text-center animate-fade-in">
+      <div className="w-full max-w-md text-center animate-fade-in relative">
+        {/* Back Button */}
+        <Button
+          variant="ghost"
+          size="sm"
+          onClick={() => onBack?.()}
+          disabled={!onBack}
+          className="absolute left-0 top-0 text-muted-foreground hover:text-foreground"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back
+        </Button>
+
         {/* Success Icon */}
         <div className="mb-8">
           <div className="relative inline-block">

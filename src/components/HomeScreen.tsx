@@ -18,12 +18,21 @@ export const HomeScreen = ({ onBack }: HomeScreenProps) => {
       <div className="bg-card shadow-sm border-b">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            {onBack && (
-              <Button variant="ghost" size="sm" onClick={onBack} className="mr-2">
-                <ArrowLeft className="h-4 w-4" />
-              </Button>
-            )}
-            <Button variant="ghost" size="sm" className="mr-2">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => (onBack ? onBack() : navigate(-1))}
+              className="mr-2"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="mr-2"
+              onClick={() => navigate("/")}
+            >
               <Home className="h-4 w-4" />
             </Button>
             <div className="p-2 rounded-full bg-primary text-primary-foreground">

@@ -1,51 +1,47 @@
-import { useState } from "react";
 import { WelcomeScreen } from "../components/WelcomeScreen";
 import { AuthScreen } from "../components/AuthScreen";
 import { PreferencesScreen } from "../components/PreferencesScreen";
 import { OnboardingCarousel } from "../components/OnboardingCarousel";
-import { CompletionScreen } from "../components/CompletionScreen";
+import { CompletionScreen } from "@/components/CompletionScreen";
 import { HomeScreen } from "../components/HomeScreen";
+import { usePersistentState } from "@/hooks/use-persistent-state";
 
 type OnboardingStep = "welcome" | "auth" | "preferences" | "carousel" | "completion" | "home";
 
 const Index = () => {
-  const [currentStep, setCurrentStep] = useState<OnboardingStep>("welcome");
+  const [currentStep, setCurrentStep] = usePersistentState<OnboardingStep>("travelmate_step", "welcome");
+  const [stepHistory, setStepHistory] = usePersistentState<OnboardingStep[]>("travelmate_step_history", []);
 
-  const handleStepChange = (step: OnboardingStep) => {
-    setCurrentStep(step);
+  const goToStep = (next: OnboardingStep) => {
+    setStepHistory((prev) => [...prev, currentStep]);
+    setCurrentStep(next);
+  };
+
+  const goBack = () => {
+    setStepHistory((prev) => {
+      const copy = [...prev];
+      const previous = copy.pop();
+      if (previous) setCurrentStep(previous);
+      return copy;
+    });
   };
 
   const renderCurrentStep = () => {
     switch (currentStep) {
       case "welcome":
-        return <WelcomeScreen onGetStarted={() => handleStepChange("auth")} />;
+        return <WelcomeScreen onGetStarted={() => goToStep("auth")} />;
       case "auth":
-        return (
-          <AuthScreen
-            onBack={() => handleStepChange("welcome")}
-            onContinue={() => handleStepChange("preferences")}
-          />
-        );
+        return <AuthScreen onBack={goBack} onContinue={() => goToStep("preferences")} />;
       case "preferences":
-        return (
-          <PreferencesScreen
-            onBack={() => handleStepChange("auth")}
-            onContinue={() => handleStepChange("carousel")}
-          />
-        );
+        return <PreferencesScreen onBack={goBack} onContinue={() => goToStep("carousel")} />;
       case "carousel":
-        return (
-          <OnboardingCarousel
-            onBack={() => handleStepChange("preferences")}
-            onContinue={() => handleStepChange("completion")}
-          />
-        );
+        return <OnboardingCarousel onBack={goBack} onContinue={() => goToStep("completion")} />;
       case "completion":
-        return <CompletionScreen onStartExploring={() => handleStepChange("home")} />;
+        return <CompletionScreen onBack={goBack} onStartExploring={() => goToStep("home")} />;
       case "home":
-        return <HomeScreen onBack={() => handleStepChange("completion")} />;
+        return <HomeScreen onBack={goBack} />;
       default:
-        return <WelcomeScreen onGetStarted={() => handleStepChange("auth")} />;
+        return <WelcomeScreen onGetStarted={() => goToStep("auth")} />;
     }
   };
 

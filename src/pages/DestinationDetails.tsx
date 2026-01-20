@@ -20,9 +20,9 @@ const DestinationDetails = () => {
             <CardDescription>The destination you're looking for doesn't exist.</CardDescription>
           </CardHeader>
           <CardContent>
-            <Button onClick={() => navigate("/")} variant="hero">
+            <Button onClick={() => (window.history.length > 1 ? navigate(-1) : navigate("/"))} variant="hero">
               <ArrowLeft className="h-4 w-4 mr-2" />
-              Back to Home
+              Go Back
             </Button>
           </CardContent>
         </Card>
@@ -45,7 +45,7 @@ const DestinationDetails = () => {
         <div className="absolute top-0 left-0 right-0 p-6 flex items-center justify-between">
           <Button 
             variant="ghost" 
-            onClick={() => navigate("/")}
+            onClick={() => (window.history.length > 1 ? navigate(-1) : navigate("/"))}
             className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />

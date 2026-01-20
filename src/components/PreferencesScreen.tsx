@@ -1,10 +1,10 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { ArrowLeft, MapPin, DollarSign, Building, Sparkles } from "lucide-react";
 import { formatInrRange } from "@/lib/currency";
+import { usePersistentState } from "@/hooks/use-persistent-state";
 
 interface PreferencesScreenProps {
   onBack: () => void;
@@ -19,7 +19,7 @@ interface Preferences {
 }
 
 export const PreferencesScreen = ({ onBack, onContinue }: PreferencesScreenProps) => {
-  const [preferences, setPreferences] = useState<Preferences>({
+  const [preferences, setPreferences] = usePersistentState<Preferences>("travelmate_preferences", {
     destinations: [],
     budget: "",
     accommodations: [],
